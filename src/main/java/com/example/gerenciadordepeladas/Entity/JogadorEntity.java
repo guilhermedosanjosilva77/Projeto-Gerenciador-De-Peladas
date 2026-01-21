@@ -1,11 +1,17 @@
 package com.example.gerenciadordepeladas.Entity;
 
 import java.sql.Date;
+import java.util.List;
+
+import com.example.gerenciadordepeladas.Enums.EnumPosicao;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -13,12 +19,21 @@ import jakarta.persistence.Table;
 public class JogadorEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private Long id_jogador;
+
+    // Relacionamento: um jogador pode ter vários vínculos com times
+    @OneToMany (mappedBy = "jogador")
+    private List<Time_Jogador> timejogador;
+
+    //Relacionamento tabela estatistica jogador
+    @OneToMany (mappedBy = "jogador")
+    private List<Estatisitca_Jogador> estatisitca_Jogador;
+
     private String nome;
 
     //Atenção
-    private String posicao;
+    @Enumerated (EnumType.STRING)
+    private EnumPosicao posicao;
 
     //Atenção
     private String foto;
@@ -28,7 +43,7 @@ public class JogadorEntity {
     public JogadorEntity() {
     }
 
-    public JogadorEntity(Long id_jogador, String nome, String posicao, String foto, String status, Date data_criaçao) {
+    public JogadorEntity(Long id_jogador, String nome, EnumPosicao posicao, String foto, String status, Date data_criaçao) {
         this.id_jogador = id_jogador;
         this.nome = nome;
         this.posicao = posicao;
@@ -53,11 +68,11 @@ public class JogadorEntity {
         this.nome = nome;
     }
 
-    public String getPosicao() {
+    public EnumPosicao getPosicao() {
         return posicao;
     }
 
-    public void setPosicao(String posicao) {
+    public void setPosicao(EnumPosicao posicao) {
         this.posicao = posicao;
     }
 
