@@ -18,17 +18,17 @@ public class Estatisitca_Jogador {
 
     //FK id_jogador
     @ManyToOne 
-    @JoinColumn (name = "jogador")
+    @JoinColumn (name = "id_jogador")
     private JogadorEntity jogadorEntity;
     
     //FK id_liga
     @ManyToOne
-    @JoinColumn (name = "liga")
+    @JoinColumn (name = "id_liga")
     private LigaEntity ligaEntity;
 
     //FK id_time
     @ManyToOne
-    @JoinColumn (name = "time")
+    @JoinColumn (name = "id_time")
     private TimeEntity timeEntity;
 
     private int gols;

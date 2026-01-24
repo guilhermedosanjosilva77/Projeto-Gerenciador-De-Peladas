@@ -22,11 +22,11 @@ public class JogadorEntity {
     private Long id_jogador;
 
     // Relacionamento: um jogador pode ter vários vínculos com times
-    @OneToMany (mappedBy = "jogador")
+    @OneToMany (mappedBy = "jogadorEntity")
     private List<Time_Jogador> timejogador;
 
     //Relacionamento tabela estatistica jogador
-    @OneToMany (mappedBy = "jogador")
+    @OneToMany (mappedBy = "jogadorEntity")
     private List<Estatisitca_Jogador> estatisitca_Jogador;
 
     private String nome;

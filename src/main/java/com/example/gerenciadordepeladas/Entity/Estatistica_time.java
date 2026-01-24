@@ -18,12 +18,12 @@ public class Estatistica_time {
 
     //FK id_time
     @ManyToOne
-    @JoinColumn (name = "time")
+    @JoinColumn (name = "id_time")
     private TimeEntity timeEntity;
 
     //FK id_liga
     @ManyToOne
-    @JoinColumn (name = "liga")
+    @JoinColumn (name = "id_liga")
     private LigaEntity ligaEntity;
 
     private int gols_pro;

@@ -25,15 +25,15 @@ public class LigaEntity {
     private Long id_liga;
 
     //tabela liga_time relacionamento muitos para muitos
-    @OneToMany (mappedBy = "liga")
+    @OneToMany (mappedBy = "ligaEntity")
     private List<Liga_TIme> ligatimes;
 
     //tabela estatistica de jogadores
-    @OneToMany (mappedBy = "liga")  
+    @OneToMany (mappedBy = "ligaEntity")  
     private List<Estatisitca_Jogador> estatisitca_Jogador;
 
     //tabela estatistica time na liga 
-    @OneToMany (mappedBy = "liga")
+    @OneToMany (mappedBy = "ligaEntity")
     private List<Estatistica_time> estatistica_time;
 
     private String nome_liga;

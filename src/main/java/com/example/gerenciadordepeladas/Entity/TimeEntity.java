@@ -17,19 +17,19 @@ public class TimeEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private Long id_time;
-    @OneToMany (mappedBy = "time")
+    @OneToMany (mappedBy = "timeEntity")
     private List<Liga_TIme> ligatimes;
 
     //UM time pode ter vários jogadores
-    @OneToMany (mappedBy = "time")
+    @OneToMany (mappedBy = "timeEntity")
     private List<Time_Jogador> timejogador;
 
     //tabela estatistica jogador
-    @OneToMany (mappedBy = "time")
+    @OneToMany (mappedBy = "timeEntity")
     private List <Estatisitca_Jogador> estatisitca_Jogador;
 
     //tabela estatistica time
-    @OneToMany (mappedBy = "time")
+    @OneToMany (mappedBy = "timeEntity")
     private List <Estatistica_time> estatistica_time;
 
     private String nome_time;
