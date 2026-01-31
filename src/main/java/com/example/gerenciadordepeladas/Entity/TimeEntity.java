@@ -17,6 +17,7 @@ public class TimeEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private Long id_time;
+    
     @OneToMany (mappedBy = "timeEntity")
     private List<Liga_TIme> ligatimes;
 
