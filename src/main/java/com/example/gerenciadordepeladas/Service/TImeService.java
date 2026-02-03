@@ -29,7 +29,7 @@ public class TImeService {
     }
 
     //READ
-    public List<TimeEntity> listarTime(){
+    public List<TimeEntity> listar(){
         return timeRepository.findAll();
     } 
 

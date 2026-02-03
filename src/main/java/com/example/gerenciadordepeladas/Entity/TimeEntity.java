@@ -15,7 +15,6 @@ import jakarta.persistence.Table;
 public class TimeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private Long id_time;
     
     @OneToMany (mappedBy = "timeEntity")
