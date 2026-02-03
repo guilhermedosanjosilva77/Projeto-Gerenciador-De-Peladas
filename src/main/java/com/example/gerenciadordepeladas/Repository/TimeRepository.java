@@ -6,7 +6,7 @@ import com.example.gerenciadordepeladas.Entity.TimeEntity;
 
 public interface TimeRepository extends JpaRepository <TimeEntity,Long>{
 
-    boolean exiexistsByNomeTime(String nome_time);
+boolean existsByNomeTime(String nomeTime);
     
 
 }

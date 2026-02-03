@@ -33,7 +33,7 @@ public class TimeEntity {
     @OneToMany (mappedBy = "timeEntity")
     private List <Estatistica_time> estatistica_time;
 
-    private String nome_time;
+    private String nomeTime;
     private String regiao;
 
     //ATencao
@@ -45,14 +45,14 @@ public class TimeEntity {
     }
 
     public TimeEntity(Long id_time, List<Liga_TIme> ligatimes, List<Time_Jogador> timejogador,
-            List<Estatisitca_Jogador> estatisitca_Jogador, List<Estatistica_time> estatistica_time, String nome_time,
+            List<Estatisitca_Jogador> estatisitca_Jogador, List<Estatistica_time> estatistica_time, String nomeTime,
             String regiao, String emblema, Date data_criacao_time) {
         this.id_time = id_time;
         this.ligatimes = ligatimes;
         this.timejogador = timejogador;
         this.estatisitca_Jogador = estatisitca_Jogador;
         this.estatistica_time = estatistica_time;
-        this.nome_time = nome_time;
+        this.nomeTime = nomeTime;
         this.regiao = regiao;
         this.emblema = emblema;
         this.data_criacao_time = data_criacao_time;
@@ -99,11 +99,11 @@ public class TimeEntity {
     }
 
     public String getNome_time() {
-        return nome_time;
+        return nomeTime;
     }
 
     public void setNome_time(String nome_time) {
-        this.nome_time = nome_time;
+        this.nomeTime = nome_time;
     }
 
     public String getRegiao() {

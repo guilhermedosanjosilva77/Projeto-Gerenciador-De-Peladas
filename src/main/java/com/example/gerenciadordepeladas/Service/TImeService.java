@@ -2,7 +2,6 @@ package com.example.gerenciadordepeladas.Service;
 
 import java.util.List;
 
-import javax.management.RuntimeErrorException;
 
 import org.springframework.stereotype.Service;
 
@@ -20,7 +19,7 @@ public class TImeService {
 
     //CREATE
     public TimeEntity criar (TimeEntity timeEntity){
-        boolean existe = timeRepository.exiexistsByNomeTime(timeEntity.getNome_time());
+        boolean existe = timeRepository.existsByNomeTime(null);
 
         if (existe) {
             
@@ -48,7 +47,7 @@ public class TImeService {
             
         }
 
-        timeEntity.setNome_time(atualizar.getNome_time());
+        timeEntity.setNome_time(atualizar.getNome_time());;
         timeEntity.setRegiao(atualizar.getRegiao());
         timeEntity.setEmblema(atualizar.getEmblema());
         timeEntity.setData_criacao_time(atualizar.getData_criacao_time());
