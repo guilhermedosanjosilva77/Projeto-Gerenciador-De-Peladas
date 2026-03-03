@@ -28,7 +28,7 @@ public class JogadorEntity {
 
     //Chave estrangeira da tabela TimeEntity, que serve para indicar o time em que o jogador pertence
     @ManyToOne
-    @JoinColumn(name = "timeEntity")
+    @JoinColumn(name = "id_time")
     private TimeEntity timeEntity;
 
     private String nome;
