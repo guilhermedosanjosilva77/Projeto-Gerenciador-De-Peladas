@@ -47,9 +47,8 @@ public class TImeService {
             
         }
 
-        timeEntity.setNome_time(atualizar.getNome_time());;
+        timeEntity.setNomeTime(atualizar.getNomeTime());
         timeEntity.setRegiao(atualizar.getRegiao());
-        timeEntity.setEmblema(atualizar.getEmblema());
         timeEntity.setData_criacao_time(atualizar.getData_criacao_time());
 
         return timeRepository.save(timeEntity);

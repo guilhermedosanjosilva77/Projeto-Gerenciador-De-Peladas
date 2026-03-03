@@ -24,10 +24,6 @@ public class LigaEntity {
 
     private Long id_liga;
 
-    //tabela liga_time relacionamento muitos para muitos
-    @OneToMany (mappedBy = "ligaEntity")
-    private List<Liga_TIme> ligatimes;
-
     //tabela estatistica de jogadores
     @OneToMany (mappedBy = "ligaEntity")  
     private List<Estatisitca_Jogador> estatisitca_Jogador;
@@ -35,6 +31,9 @@ public class LigaEntity {
     //tabela estatistica time na liga 
     @OneToMany (mappedBy = "ligaEntity")
     private List<Estatistica_time> estatistica_time;
+
+    @OneToMany (mappedBy = "ligaEntity")
+    private List<TimeEntity>timeEntity;
 
     private String nome_liga;
     private String regiao_lga;
@@ -49,8 +48,6 @@ public class LigaEntity {
     private int min_times;
     private int max_times;
 
-    //Atencao
-    private String emblema;
 
     @Enumerated (EnumType.STRING)
     private EnumStatus status;
@@ -60,24 +57,27 @@ public class LigaEntity {
     public LigaEntity() {
     }
 
-    public LigaEntity(Long id_liga, List<Liga_TIme> ligatimes, List<Estatisitca_Jogador> estatisitca_Jogador,
-            List<Estatistica_time> estatistica_time, String nome_liga, String regiao_lga, EnumModalidade modalidade,
-            EnumFormato formato, int min_times, int max_times, String emblema, EnumStatus status,
+    
+
+    public LigaEntity(Long id_liga, List<Estatisitca_Jogador> estatisitca_Jogador,
+            List<Estatistica_time> estatistica_time, List<TimeEntity> timeEntity, String nome_liga, String regiao_lga,
+            EnumModalidade modalidade, EnumFormato formato, int min_times, int max_times, EnumStatus status,
             Date data_criacao_liga) {
         this.id_liga = id_liga;
-        this.ligatimes = ligatimes;
         this.estatisitca_Jogador = estatisitca_Jogador;
         this.estatistica_time = estatistica_time;
+        this.timeEntity = timeEntity;
         this.nome_liga = nome_liga;
         this.regiao_lga = regiao_lga;
         this.modalidade = modalidade;
         this.formato = formato;
         this.min_times = min_times;
         this.max_times = max_times;
-        this.emblema = emblema;
         this.status = status;
         this.data_criacao_liga = data_criacao_liga;
     }
+
+
 
     public Long getId_liga() {
         return id_liga;
@@ -86,15 +86,6 @@ public class LigaEntity {
     public void setId_liga(Long id_liga) {
         this.id_liga = id_liga;
     }
-
-    public List<Liga_TIme> getLigatimes() {
-        return ligatimes;
-    }
-
-    public void setLigatimes(List<Liga_TIme> ligatimes) {
-        this.ligatimes = ligatimes;
-    }
-
     public List<Estatisitca_Jogador> getEstatisitca_Jogador() {
         return estatisitca_Jogador;
     }
@@ -159,14 +150,6 @@ public class LigaEntity {
         this.max_times = max_times;
     }
 
-    public String getEmblema() {
-        return emblema;
-    }
-
-    public void setEmblema(String emblema) {
-        this.emblema = emblema;
-    }
-
     public EnumStatus getStatus() {
         return status;
     }
@@ -183,6 +166,19 @@ public class LigaEntity {
         this.data_criacao_liga = data_criacao_liga;
     }
 
+
+
+    public List<TimeEntity> getTimeEntity() {
+        return timeEntity;
+    }
+
+
+
+    public void setTimeEntity(List<TimeEntity> timeEntity) {
+        this.timeEntity = timeEntity;
+    }
+
+    
     
 
 }

@@ -45,7 +45,6 @@ public class LigaService {
         ligaEntity.setFormato(atualizar.getFormato());
         ligaEntity.setMin_times(atualizar.getMin_times());
         ligaEntity.setMax_times(atualizar.getMax_times());
-        ligaEntity.setEmblema(atualizar.getEmblema());
         ligaEntity.setStatus(atualizar.getStatus());
         ligaEntity.setData_criacao_liga(atualizar.getData_criacao_liga());
 

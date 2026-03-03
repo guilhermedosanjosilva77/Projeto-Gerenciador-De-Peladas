@@ -1,6 +1,5 @@
 package com.example.gerenciadordepeladas.Entity;
 
-import java.sql.Date;
 import java.util.List;
 
 import com.example.gerenciadordepeladas.Enums.EnumPosicao;
@@ -11,6 +10,8 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
@@ -21,35 +22,34 @@ public class JogadorEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_jogador;
 
-    // Relacionamento: um jogador pode ter vários vínculos com times
-    @OneToMany (mappedBy = "jogadorEntity")
-    private List<Time_Jogador> timejogador;
-
     //Relacionamento tabela estatistica jogador
     @OneToMany (mappedBy = "jogadorEntity")
     private List<Estatisitca_Jogador> estatisitca_Jogador;
 
+    //Chave estrangeira da tabela TimeEntity, que serve para indicar o time em que o jogador pertence
+    @ManyToOne
+    @JoinColumn(name = "JogadorEntity")
+    private TimeEntity timeEntity;
+
     private String nome;
 
-    //Atenção
+
     @Enumerated (EnumType.STRING)
     private EnumPosicao posicao;
 
-    //Atenção
-    private String foto;
     private String status;
-    private Date data_criaçao;
 
     public JogadorEntity() {
     }
 
-    public JogadorEntity(Long id_jogador, String nome, EnumPosicao posicao, String foto, String status, Date data_criaçao) {
+    public JogadorEntity(Long id_jogador, List<Estatisitca_Jogador> estatisitca_Jogador,
+            String nome, EnumPosicao posicao, String status,TimeEntity timeEntity) {
         this.id_jogador = id_jogador;
+        this.estatisitca_Jogador = estatisitca_Jogador;
         this.nome = nome;
         this.posicao = posicao;
-        this.foto = foto;
         this.status = status;
-        this.data_criaçao = data_criaçao;
+        this.timeEntity = timeEntity;
     }
 
     public Long getId_jogador() {
@@ -58,6 +58,14 @@ public class JogadorEntity {
 
     public void setId_jogador(Long id_jogador) {
         this.id_jogador = id_jogador;
+    }
+
+    public List<Estatisitca_Jogador> getEstatisitca_Jogador() {
+        return estatisitca_Jogador;
+    }
+
+    public void setEstatisitca_Jogador(List<Estatisitca_Jogador> estatisitca_Jogador) {
+        this.estatisitca_Jogador = estatisitca_Jogador;
     }
 
     public String getNome() {
@@ -76,14 +84,6 @@ public class JogadorEntity {
         this.posicao = posicao;
     }
 
-    public String getFoto() {
-        return foto;
-    }
-
-    public void setFoto(String foto) {
-        this.foto = foto;
-    }
-
     public String getStatus() {
         return status;
     }
@@ -92,12 +92,12 @@ public class JogadorEntity {
         this.status = status;
     }
 
-    public Date getData_criaçao() {
-        return data_criaçao;
+    public TimeEntity getTimeEntity() {
+        return timeEntity;
     }
 
-    public void setData_criaçao(Date data_criaçao) {
-        this.data_criaçao = data_criaçao;
+    public void setTimeEntity(TimeEntity timeEntity) {
+        this.timeEntity = timeEntity;
     }
 
     
@@ -105,4 +105,6 @@ public class JogadorEntity {
     
 
     
+
 }
+

@@ -41,7 +41,6 @@ public class JogadorService {
         }
         jogadorEntity.setNome(atualizar.getNome());
         jogadorEntity.setPosicao(atualizar.getPosicao());
-        jogadorEntity.setFoto(atualizar.getFoto());
         jogadorEntity.setStatus(atualizar.getStatus());
         jogadorEntity.setData_criaçao(atualizar.getData_criaçao());
 
