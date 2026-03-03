@@ -32,6 +32,7 @@ public class LigaEntity {
     @OneToMany (mappedBy = "ligaEntity")
     private List<Estatistica_time> estatistica_time;
 
+    //Tabela relacionamento com os times
     @OneToMany (mappedBy = "ligaEntity")
     private List<TimeEntity>timeEntity;
 

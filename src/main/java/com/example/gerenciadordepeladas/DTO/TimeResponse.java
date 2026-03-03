@@ -1,19 +1,13 @@
 package com.example.gerenciadordepeladas.DTO;
 
 import java.util.Date;
+import java.util.List;
 
-import com.example.gerenciadordepeladas.Entity.TimeEntity;
-
-public record TimeResponse(String nomeTime, String regiao, Date data_criacao_time, Long id){
-    public TimeResponse(TimeEntity timeEntity) {
-        this(
-            timeEntity.getNomeTime(),
-            timeEntity.getRegiao(),
-            timeEntity.getData_criacao_time(),
-            timeEntity.get
-
-
-        );
-        
-    } 
-} 
+    
+public record TimeResponse(
+    String nomeTime, 
+    String regiao, 
+    Date data_criacao_time, 
+    Long id,
+    List<JogadorResponse> jogador
+) {}
