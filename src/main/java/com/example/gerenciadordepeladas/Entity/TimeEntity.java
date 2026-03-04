@@ -94,6 +94,30 @@ public class TimeEntity {
     public void setData_criacao_time(Date data_criacao_time) {
         this.data_criacao_time = data_criacao_time;
     }
+
+
+
+    public List<JogadorEntity> getJogadorEntity() {
+        return jogadorEntity;
+    }
+
+
+
+    public void setJogadorEntity(List<JogadorEntity> jogadorEntity) {
+        this.jogadorEntity = jogadorEntity;
+    }
+
+
+
+    public LigaEntity getLigaEntity() {
+        return ligaEntity;
+    }
+
+
+
+    public void setLigaEntity(LigaEntity ligaEntity) {
+        this.ligaEntity = ligaEntity;
+    }
     
 
     
