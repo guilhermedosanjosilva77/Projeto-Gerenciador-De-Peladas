@@ -1,5 +1,6 @@
 package com.example.gerenciadordepeladas.Entity;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -22,7 +23,7 @@ public class TimeEntity {
 
     //Um time pode ter muitos jogadores (Um > Muitos)
     @OneToMany (mappedBy = "timeEntity")
-    private List<JogadorEntity> jogadorEntity;
+    private List<JogadorEntity> jogadorEntity = new ArrayList<>();
 
     //tabela estatistica time
     @OneToMany (mappedBy = "timeEntity")

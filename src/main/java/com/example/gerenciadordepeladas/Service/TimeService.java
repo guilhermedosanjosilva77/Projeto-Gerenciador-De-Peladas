@@ -1,6 +1,5 @@
 package com.example.gerenciadordepeladas.Service;
-
-import java.sql.Time;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -9,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.example.gerenciadordepeladas.DTO.JogadorResponse;
 import com.example.gerenciadordepeladas.DTO.TimeRequest;
 import com.example.gerenciadordepeladas.DTO.TimeResponse;
+import com.example.gerenciadordepeladas.Entity.JogadorEntity;
 import com.example.gerenciadordepeladas.Entity.TimeEntity;
 import com.example.gerenciadordepeladas.Repository.TimeRepository;
 
@@ -77,6 +77,15 @@ public class TimeService {
 
     //MÉTODO TRADUTOR (ENTITY -> DTO)
     private TimeResponse paraDTO(TimeEntity timeEntity){
+
+        List<JogadorEntity> listaJogadores;
+
+        if (timeEntity.getJogadorEntity() != null) {
+            listaJogadores = timeEntity.getJogadorEntity();
+            }
+            else{
+                listaJogadores= new ArrayList<>();
+            }
         List<JogadorResponse> jogadoresDTO = timeEntity.getJogadorEntity().stream()
                 .map(j -> new JogadorResponse(
                         j.getId_jogador(),
