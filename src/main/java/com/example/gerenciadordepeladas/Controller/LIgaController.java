@@ -3,6 +3,8 @@ package com.example.gerenciadordepeladas.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.gerenciadordepeladas.DTO.LigaRequest;
+import com.example.gerenciadordepeladas.DTO.LigaResponse;
 import com.example.gerenciadordepeladas.Entity.LigaEntity;
 import com.example.gerenciadordepeladas.Service.LigaService;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -30,30 +32,30 @@ public class LIgaController {
 
     //CREATE
     @PostMapping
-    public LigaEntity criar(@RequestBody LigaEntity ligaEntity) {
-        return ligaService.criar(ligaEntity);
+    public LigaResponse criar(@RequestBody LigaRequest ligaRequest, @PathVariable Long id_liga) {
+        return ligaService.criar(ligaRequest, id_liga);
         
     }
 
     //READ
     @GetMapping
-    public List<LigaEntity> ler() {
-        return ligaService.listarLiga();
+    public List<LigaResponse> listar() {
+        return ligaService.listar();
     }
 
     //READ BY ID
     @GetMapping("/{id_liga}")
-    public LigaEntity lerPorId(@PathVariable Long id_liga){
+    public LigaResponse listarPorId(@PathVariable Long id_liga){
         return ligaService.listarPorId(id_liga);
 
     }
 
     //UPDATE
     @PutMapping("/{id_liga}")
-    public LigaEntity atualizar (@PathVariable Long id_liga, @RequestBody LigaEntity ligaEntity) {
+    public LigaResponse atualizar (@PathVariable Long id_liga, @RequestBody LigaRequest ligaRequest) {
         //TODO: process PUT request
         
-        return ligaService.atualizar(ligaEntity, id_liga);
+        return ligaService.atualizar(id_liga, ligaRequest);
     }
 
     //DELETE
@@ -61,10 +63,6 @@ public class LIgaController {
     public void deletar(@PathVariable Long id_liga){
         ligaService.deletar(id_liga);
     }
-
-    //COMENTARIOS SOBRE O CÓDIGO
-    //PATH VARIABLE USADO QUANDO O METODO PRECISA DE UM ID
-    //E REQUEST BODY QUANDO PRECISAR APONTAR OUTRA CLASSE
     
     
     

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+
 import org.springframework.stereotype.Service;
 
 import com.example.gerenciadordepeladas.DTO.LigaRequest;
@@ -38,6 +39,7 @@ public class LigaService {
 
         //ESSE IF TEM A FUNÇÃO DE VER COMPARAR OS IDS DIGITADOS PELO USUARIO COM OS SALVOS NO BANCO DE DADOS
         //SE OS IDS NAO ESTIVEREM ASSOCIADOS A NENNHUM, ELE FICA ASSOCIDADO A LIGA EM QUESTÃO
+
         if (ligaRequest.timesId() != null && !ligaRequest.timesId().isEmpty()) {
         List<TimeEntity> timesEncontrados = timeRepository.findAllById(ligaRequest.timesId());
         
@@ -59,15 +61,15 @@ public class LigaService {
     }
 
     //READ BY ID
-    public LigaResponse buscarPorId(Long id) {
+    public LigaResponse listarPorId(Long id) {
         LigaEntity liga = ligaRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Liga não encontrada"));
         return paraDTO(liga);
     }
 
     //UPDATE
-    public LigaResponse atualizar(Long id, LigaRequest ligaRequest) {
-        LigaEntity ligaEntity = ligaRepository.findById(id)
+    public LigaResponse atualizar(Long id_liga, LigaRequest ligaRequest) {
+        LigaEntity ligaEntity = ligaRepository.findById(id_liga)
                 .orElseThrow(() -> new RuntimeException("Liga não encontrada"));
 
         ligaEntity.setNome_liga(ligaRequest.nome());
@@ -117,6 +119,8 @@ public class LigaService {
                     .collect(Collectors.toList())
                 : new ArrayList<>();
                 //Collect e Collectors colocam os itens em uma nova lista
+            
+     
 
         return new LigaResponse(
                ligaEntity.getId_liga(),
