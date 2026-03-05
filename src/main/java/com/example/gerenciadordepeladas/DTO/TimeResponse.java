@@ -10,4 +10,5 @@ public record TimeResponse(
     Date data_criacao_time, 
     Long id_Time,
     List<JogadorResponse> jogador
+    
 ) {}

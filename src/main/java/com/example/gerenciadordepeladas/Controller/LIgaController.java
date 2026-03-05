@@ -5,7 +5,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.gerenciadordepeladas.DTO.LigaRequest;
 import com.example.gerenciadordepeladas.DTO.LigaResponse;
-import com.example.gerenciadordepeladas.Entity.LigaEntity;
 import com.example.gerenciadordepeladas.Service.LigaService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -32,8 +31,8 @@ public class LIgaController {
 
     //CREATE
     @PostMapping
-    public LigaResponse criar(@RequestBody LigaRequest ligaRequest, @PathVariable Long id_liga) {
-        return ligaService.criar(ligaRequest, id_liga);
+    public LigaResponse criar(@RequestBody LigaRequest ligaRequest) {
+        return ligaService.criar(ligaRequest);
         
     }
 

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.example.gerenciadordepeladas.DTO.LigaRequest;
 import com.example.gerenciadordepeladas.DTO.LigaResponse;
 import com.example.gerenciadordepeladas.DTO.TimeResponse;
+import com.example.gerenciadordepeladas.DTO.TimeSimplificado;
 import com.example.gerenciadordepeladas.Entity.LigaEntity;
 import com.example.gerenciadordepeladas.Entity.TimeEntity;
 import com.example.gerenciadordepeladas.Repository.LigaRepository;
@@ -27,7 +28,7 @@ public class LigaService {
     }
 
     //CREATE
-    public LigaResponse criar (LigaRequest ligaRequest, Long id_liga){
+    public LigaResponse criar (LigaRequest ligaRequest){
         LigaEntity ligaEntity = new LigaEntity();
 
         ligaEntity.setNome_liga(ligaRequest.nome());
@@ -107,14 +108,12 @@ public class LigaService {
 
     private LigaResponse paraDTO(LigaEntity ligaEntity) {
         // Proteção contra NullPointerException na lista de times
-        List<TimeResponse> timesDTO = (ligaEntity.getTimeEntity() != null) 
+        List<TimeSimplificado> timesDTO = (ligaEntity.getTimeEntity() != null) 
                 ? ligaEntity.getTimeEntity().stream()
-                    .map(time -> new TimeResponse(
-                        time.getNomeTime(),
-                        time.getRegiao(),
-                        time.getData_criacao_time(),
-                        time.getId_time(),
-                        new ArrayList<>() 
+                    .map(times -> new TimeSimplificado(
+                        times.getId_time(),
+                        times.getNomeTime(),
+                        times.getRegiao()
                     ))
                     .collect(Collectors.toList())
                 : new ArrayList<>();

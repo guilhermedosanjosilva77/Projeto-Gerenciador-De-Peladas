@@ -15,7 +15,8 @@ public record LigaResponse(
     int maxTimes,
     int minTimes,
     Date data_criacao,
-    List<TimeResponse> times
+    //DTO SIMPLIFICADO PARA PASSAR DENTRO DO SERVICE
+    List<TimeSimplificado> times
 
 ) {
 }
