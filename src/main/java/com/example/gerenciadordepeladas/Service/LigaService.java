@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 
 import com.example.gerenciadordepeladas.DTO.LigaRequest;
 import com.example.gerenciadordepeladas.DTO.LigaResponse;
-import com.example.gerenciadordepeladas.DTO.TimeResponse;
 import com.example.gerenciadordepeladas.DTO.TimeSimplificado;
 import com.example.gerenciadordepeladas.Entity.LigaEntity;
 import com.example.gerenciadordepeladas.Entity.TimeEntity;

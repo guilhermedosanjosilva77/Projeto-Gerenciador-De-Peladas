@@ -8,7 +8,6 @@ public record EstatisticaTimeResponse(
     int derrota,
     int empate,
     int saldoGols,
-    Long idTime,
-    Long idLiga
+    Long idTime
 ) {
 } 

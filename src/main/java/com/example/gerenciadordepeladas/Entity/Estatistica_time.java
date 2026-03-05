@@ -1,5 +1,7 @@
 package com.example.gerenciadordepeladas.Entity;
 
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -19,12 +21,12 @@ public class Estatistica_time {
     //FK id_time
     @ManyToOne
     @JoinColumn (name = "id_time")
-    private TimeEntity timeEntity;
+    private List<TimeEntity> timeEntity;
 
     //FK id_liga
     @ManyToOne
     @JoinColumn (name = "id_liga")
-    private LigaEntity ligaEntity;
+    private List<LigaEntity> ligaEntity;
 
     private int gols_pro;
     private int gols_contra;
@@ -36,8 +38,8 @@ public class Estatistica_time {
     public Estatistica_time() {
     }
 
-    public Estatistica_time(Long id_estatistica_time, TimeEntity timeEntity, LigaEntity ligaEntity, int gols_pro,
-            int gols_contra, int vitoria, int derrota, int empate, int saldoGols) {
+    public Estatistica_time(Long id_estatistica_time, List<TimeEntity> timeEntity, List<LigaEntity> ligaEntity,
+            int gols_pro, int gols_contra, int vitoria, int derrota, int empate, int saldoGols) {
         this.id_estatistica_time = id_estatistica_time;
         this.timeEntity = timeEntity;
         this.ligaEntity = ligaEntity;
@@ -46,7 +48,7 @@ public class Estatistica_time {
         this.vitoria = vitoria;
         this.derrota = derrota;
         this.empate = empate;
-        this.saldoGols =saldoGols;
+        this.saldoGols = saldoGols;
     }
 
     public Long getId_estatistica_time() {
@@ -57,19 +59,19 @@ public class Estatistica_time {
         this.id_estatistica_time = id_estatistica_time;
     }
 
-    public TimeEntity getTimeEntity() {
+    public List<TimeEntity> getTimeEntity() {
         return timeEntity;
     }
 
-    public void setTimeEntity(TimeEntity timeEntity) {
+    public void setTimeEntity(List<TimeEntity> timeEntity) {
         this.timeEntity = timeEntity;
     }
 
-    public LigaEntity getLigaEntity() {
+    public List<LigaEntity> getLigaEntity() {
         return ligaEntity;
     }
 
-    public void setLigaEntity(LigaEntity ligaEntity) {
+    public void setLigaEntity(List<LigaEntity> ligaEntity) {
         this.ligaEntity = ligaEntity;
     }
 
@@ -120,6 +122,5 @@ public class Estatistica_time {
     public void setSaldoGols(int saldoGols) {
         this.saldoGols = saldoGols;
     }
-    
 
 }
