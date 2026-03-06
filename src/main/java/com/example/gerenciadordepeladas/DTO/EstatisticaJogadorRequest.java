@@ -6,8 +6,7 @@ public record EstatisticaJogadorRequest(
     int cartoesAmarelos,
     int cartoesVermelhos,
     Long jogadorId,
-    Long timeId,
-    Long ligaId
+    Long timeId
     
 
 )
