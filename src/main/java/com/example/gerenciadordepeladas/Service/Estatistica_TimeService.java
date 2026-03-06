@@ -1,5 +1,6 @@
 package com.example.gerenciadordepeladas.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -7,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.gerenciadordepeladas.DTO.EstatisticaTimeRequest;
 import com.example.gerenciadordepeladas.DTO.EstatisticaTimeResponse;
+import com.example.gerenciadordepeladas.DTO.TimeSimplificado;
 import com.example.gerenciadordepeladas.Entity.Estatistica_time;
 import com.example.gerenciadordepeladas.Entity.TimeEntity;
 import com.example.gerenciadordepeladas.Repository.Estatistica_TimeRepository;
@@ -61,7 +63,7 @@ public class Estatistica_TimeService {
         
     Estatistica_time estatistica =estatistica_TimeRepository.findById(id_estatistica_time).orElseThrow(()-> new RuntimeException("Erro ao buscar o id"));
 
-    return paraDTO(id_estatistica)
+    return paraDTO(estatistica);
     }
 
     //UPDATE
@@ -77,7 +79,7 @@ public class Estatistica_TimeService {
 
    if (estatistica.idTime() != null && !estatistica.idTime().isEmpty()) {
 
-        List<TimeEntity> timesEncontrados = timeRepository.findAllById(estatisticagit.idTime());
+        List<TimeEntity> timesEncontrados = timeRepository.findAllById(estatistica.idTime());
         
         estatistica_time.setTimeEntity(timesEncontrados);
 
@@ -93,6 +95,36 @@ public class Estatistica_TimeService {
     //DELETE
     public void deletar(Long id_estatistica_time){
         estatistica_TimeRepository.deleteById(id_estatistica_time);
+    }
+
+    public EstatisticaTimeResponse paraDTO(Estatistica_time estatistica){
+
+        List<TimeSimplificado> timeDTO;
+
+        if (estatistica.getTimeEntity() !=null) {
+            timeDTO=estatistica.getTimeEntity().stream().map(times-> new TimeSimplificado(
+                times.getId_time(),
+                times.getNomeTime(),
+                times.getRegiao()
+            ))
+            .collect(Collectors.toList());
+        }
+        else{
+            timeDTO =new ArrayList<>();
+        }
+
+        return new EstatisticaTimeResponse(
+            estatistica.getId_estatistica_time(),
+            estatistica.getGols_pro(),
+            estatistica.getGols_contra(),
+            estatistica.getVitoria(),
+            estatistica.getDerrota(),
+            estatistica.getEmpate(),
+            estatistica.getSaldoGols(),
+            timeDTO
+
+        );
+
     }
 
     
