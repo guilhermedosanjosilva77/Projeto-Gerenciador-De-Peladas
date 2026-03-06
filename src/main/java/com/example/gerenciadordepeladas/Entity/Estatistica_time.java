@@ -1,6 +1,5 @@
 package com.example.gerenciadordepeladas.Entity;
 
-import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -8,6 +7,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -19,14 +19,14 @@ public class Estatistica_time {
     private Long id_estatistica_time;
 
     //FK id_time
-    @ManyToOne
+    @OneToOne   
     @JoinColumn (name = "id_time")
-    private List<TimeEntity> timeEntity;
+    private TimeEntity timeEntity;
 
     //FK id_liga
     @ManyToOne
     @JoinColumn (name = "id_liga")
-    private List<LigaEntity> ligaEntity;
+    private LigaEntity ligaEntity;
 
     private int gols_pro;
     private int gols_contra;
@@ -38,7 +38,7 @@ public class Estatistica_time {
     public Estatistica_time() {
     }
 
-    public Estatistica_time(Long id_estatistica_time, List<TimeEntity> timeEntity, List<LigaEntity> ligaEntity,
+    public Estatistica_time(Long id_estatistica_time, TimeEntity timeEntity, LigaEntity ligaEntity,
             int gols_pro, int gols_contra, int vitoria, int derrota, int empate, int saldoGols) {
         this.id_estatistica_time = id_estatistica_time;
         this.timeEntity = timeEntity;
@@ -59,19 +59,19 @@ public class Estatistica_time {
         this.id_estatistica_time = id_estatistica_time;
     }
 
-    public List<TimeEntity> getTimeEntity() {
+    public TimeEntity getTimeEntity() {
         return timeEntity;
     }
 
-    public void setTimeEntity(List<TimeEntity> timeEntity) {
+    public void setTimeEntity(TimeEntity timeEntity) {
         this.timeEntity = timeEntity;
     }
 
-    public List<LigaEntity> getLigaEntity() {
+    public LigaEntity getLigaEntity() {
         return ligaEntity;
     }
 
-    public void setLigaEntity(List<LigaEntity> ligaEntity) {
+    public void setLigaEntity(LigaEntity ligaEntity) {
         this.ligaEntity = ligaEntity;
     }
 

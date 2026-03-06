@@ -33,9 +33,9 @@ public class EstatisticaTimeController {
     @PostMapping
     public EstatisticaTimeResponse criar(@RequestBody EstatisticaTimeRequest estatisticaTimeRequest) {
 
-        
         return estatistica_time.criar(estatisticaTimeRequest);
-    }
+
+        }
 
     //GET
     @GetMapping
@@ -56,9 +56,9 @@ public class EstatisticaTimeController {
     }
 
     @DeleteMapping("/{id_estatistica_time}")
-    public void deletar(Long id_estatistica_time){
+    public void deletar(@PathVariable Long id_estatistica_time){
         estatistica_time.deletar(id_estatistica_time);
-    }
+    }   
     
     
 

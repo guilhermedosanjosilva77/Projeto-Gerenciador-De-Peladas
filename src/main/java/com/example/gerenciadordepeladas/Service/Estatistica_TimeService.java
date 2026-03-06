@@ -1,6 +1,5 @@
 package com.example.gerenciadordepeladas.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -37,9 +36,9 @@ public class Estatistica_TimeService {
 
 
         //Comparar se o id do time existe, e se existe associar as estatisticas naquele time
-        if (estatisticaTimeRequest.idTime() != null && !estatisticaTimeRequest.idTime().isEmpty()) {
+        if (estatisticaTimeRequest.idTime() != null) {
 
-        List<TimeEntity> timesEncontrados = timeRepository.findAllById(estatisticaTimeRequest.idTime());
+        TimeEntity timesEncontrados = timeRepository.findById(estatisticaTimeRequest.idTime()).orElseThrow(()-> new RuntimeException("Erro: id não encontrado"));
         
         estatistica_time.setTimeEntity(timesEncontrados);
 
@@ -77,9 +76,9 @@ public class Estatistica_TimeService {
     estatistica_time.setEmpate(estatistica.empate());
     estatistica_time.setSaldoGols(estatistica.saldoGols());
 
-   if (estatistica.idTime() != null && !estatistica.idTime().isEmpty()) {
+   if (estatistica.idTime() != null) {
 
-        List<TimeEntity> timesEncontrados = timeRepository.findAllById(estatistica.idTime());
+        TimeEntity timesEncontrados = timeRepository.findById(id_estatistica_time).orElseThrow(()-> new RuntimeException("Erro: id não Encontrado"));
         
         estatistica_time.setTimeEntity(timesEncontrados);
 
@@ -97,20 +96,18 @@ public class Estatistica_TimeService {
         estatistica_TimeRepository.deleteById(id_estatistica_time);
     }
 
+    //Metodo de tradução para DTO
     public EstatisticaTimeResponse paraDTO(Estatistica_time estatistica){
 
-        List<TimeSimplificado> timeDTO;
+        TimeSimplificado timeDTO = null;
 
+        //Lista os itens dentro do DTO TimeSimplificado para quando for solicitado
         if (estatistica.getTimeEntity() !=null) {
-            timeDTO=estatistica.getTimeEntity().stream().map(times-> new TimeSimplificado(
-                times.getId_time(),
-                times.getNomeTime(),
-                times.getRegiao()
-            ))
-            .collect(Collectors.toList());
-        }
-        else{
-            timeDTO =new ArrayList<>();
+            timeDTO= new TimeSimplificado(
+                estatistica.getTimeEntity().getId_time(),
+                estatistica.getTimeEntity().getNomeTime(),
+                estatistica.getTimeEntity().getRegiao()
+            );
         }
 
         return new EstatisticaTimeResponse(

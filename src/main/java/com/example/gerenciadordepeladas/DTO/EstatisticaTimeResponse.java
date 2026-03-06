@@ -1,6 +1,5 @@
 package com.example.gerenciadordepeladas.DTO;
 
-import java.util.List;
 
 
 public record EstatisticaTimeResponse(
@@ -11,7 +10,7 @@ public record EstatisticaTimeResponse(
     int derrota,
     int empate,
     int saldoGols,
-    List<TimeSimplificado> time
+    TimeSimplificado igaId
 ) {
 
 } 

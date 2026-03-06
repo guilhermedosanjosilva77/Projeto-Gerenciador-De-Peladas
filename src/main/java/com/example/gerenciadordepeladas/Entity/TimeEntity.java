@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -12,6 +12,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -26,8 +27,8 @@ public class TimeEntity {
     private List<JogadorEntity> jogadorEntity = new ArrayList<>();
 
     //tabela estatistica time
-    @OneToMany (mappedBy = "timeEntity")
-    private List <Estatistica_time> estatistica_time;
+    @OneToOne (mappedBy = "timeEntity",cascade = CascadeType.ALL, orphanRemoval = true)
+    private Estatistica_time estatistica_time;
 
     @ManyToOne //Nome no banco de dados
     @JoinColumn(name = "id_liga")
@@ -43,7 +44,7 @@ public class TimeEntity {
 
     
 
-    public TimeEntity(Long id_time, List<JogadorEntity> jogadorEntity, List<Estatistica_time> estatistica_time,
+    public TimeEntity(Long id_time, List<JogadorEntity> jogadorEntity, Estatistica_time estatistica_time,
             LigaEntity ligaEntity, String nomeTime, String regiao, Date data_criacao_time) {
         this.id_time = id_time;
         this.jogadorEntity = jogadorEntity;
@@ -64,11 +65,11 @@ public class TimeEntity {
         this.id_time = id_time;
     }
 
-    public List<Estatistica_time> getEstatistica_time() {
+    public Estatistica_time getEstatistica_time() {
         return estatistica_time;
     }
 
-    public void setEstatistica_time(List<Estatistica_time> estatistica_time) {
+    public void setEstatistica_time(Estatistica_time estatistica_time) {
         this.estatistica_time = estatistica_time;
     }
 

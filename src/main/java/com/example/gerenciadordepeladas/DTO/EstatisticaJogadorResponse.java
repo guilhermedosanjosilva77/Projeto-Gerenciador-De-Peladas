@@ -8,6 +8,6 @@ public record EstatisticaJogadorResponse(
     int cartoesVermelhos,
     Long jogadorId,
     Long timeId,
-    Long ligaId
+    TimeSimplificado ligaId
 ) {
 }

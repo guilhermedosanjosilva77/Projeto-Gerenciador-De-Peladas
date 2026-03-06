@@ -1,7 +1,6 @@
 package com.example.gerenciadordepeladas.DTO;
 
-import java.util.List;
-
+    
 public record EstatisticaTimeRequest(
     int golsPro,
     int golsContra,
@@ -9,7 +8,7 @@ public record EstatisticaTimeRequest(
     int derrota,
     int empate,
     int saldoGols,
-    List<Long> idTime
+    Long idTime
     
 
 ) {
