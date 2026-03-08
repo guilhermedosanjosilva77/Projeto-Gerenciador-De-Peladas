@@ -106,7 +106,9 @@ public class LigaService {
     }
 
     private LigaResponse paraDTO(LigaEntity ligaEntity) {
+
         // Proteção contra NullPointerException na lista de times
+        //
         List<TimeSimplificado> timesDTO = (ligaEntity.getTimeEntity() != null) 
                 ? ligaEntity.getTimeEntity().stream()
                     .map(times -> new TimeSimplificado(
@@ -119,7 +121,8 @@ public class LigaService {
                 //Collect e Collectors colocam os itens em uma nova lista
             
      
-
+        
+        //Passagem dos atributos de entity para DTO
         return new LigaResponse(
                ligaEntity.getId_liga(),
             ligaEntity.getNome_liga(),

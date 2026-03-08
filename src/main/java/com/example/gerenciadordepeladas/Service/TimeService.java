@@ -95,6 +95,8 @@ public class TimeService {
                         timeEntity.getId_time()
                 ))
                 .toList();
+        
+    //Passagem dos atributos de entity para DTO
         return new TimeResponse(
             timeEntity.getNomeTime(),
             timeEntity.getRegiao(),

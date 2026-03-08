@@ -110,6 +110,7 @@ public class Estatistica_TimeService {
             );
         }
 
+    //Passagem dos atributos de entity para DTO
         return new EstatisticaTimeResponse(
             estatistica.getId_estatistica_time(),
             estatistica.getGols_pro(),
