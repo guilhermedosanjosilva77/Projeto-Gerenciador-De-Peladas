@@ -105,6 +105,7 @@ public class Estatistica_JogadorService {
         jogadorDTO = new JogadorSimplificado(
             estatisitcaJogador.getJogadorEntity().getId_jogador(),
             estatisitcaJogador.getJogadorEntity().getNome(),
+            estatisitcaJogador.getJogadorEntity().getIdade(),
             idTime
         );
     }

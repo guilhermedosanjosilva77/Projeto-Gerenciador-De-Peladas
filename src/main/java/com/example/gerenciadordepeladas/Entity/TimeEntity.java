@@ -24,7 +24,7 @@ public class TimeEntity {
 
     //Um time pode ter muitos jogadores (Um > Muitos)
     @OneToMany (mappedBy = "timeEntity")
-    private List<JogadorEntity> jogadorEntity = new ArrayList<>();
+    private List<JogadorEntity> jogadorEntity;
 
     //tabela estatistica time
     @OneToOne (mappedBy = "timeEntity",cascade = CascadeType.ALL, orphanRemoval = true)

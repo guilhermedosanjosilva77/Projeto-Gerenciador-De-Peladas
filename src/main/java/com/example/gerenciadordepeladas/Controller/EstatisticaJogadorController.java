@@ -57,7 +57,7 @@ public class EstatisticaJogadorController {
         return estatistica_Jogador.atualizar(id_estatistica_jogador, estatisticaRequest);
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{id_estatistica_jogador}")
     public void deletar(@PathVariable Long id_estatistica_jogador){
         estatistica_Jogador.deletar(id_estatistica_jogador);
     }

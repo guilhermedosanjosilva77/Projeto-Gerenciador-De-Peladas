@@ -7,6 +7,7 @@ import com.example.gerenciadordepeladas.Enums.EnumFormato;
 import com.example.gerenciadordepeladas.Enums.EnumModalidade;
 import com.example.gerenciadordepeladas.Enums.EnumStatus;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -33,7 +34,7 @@ public class LigaEntity {
     private List<Estatistica_time> estatistica_time;
 
     //Tabela relacionamento com os times
-    @OneToMany (mappedBy = "ligaEntity")
+    @OneToMany (mappedBy = "ligaEntity", cascade = CascadeType.ALL)
     private List<TimeEntity>timeEntity;
 
     private String nome_liga;

@@ -9,6 +9,7 @@ public record TimeResponse(
     String regiao, 
     Date data_criacao_time, 
     Long id_Time,
-    List<JogadorResponse> jogador
+    List<JogadorForTime> jogador,
+    Long id_liga
     
 ) {}

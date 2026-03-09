@@ -37,15 +37,21 @@ public class LigaService {
         ligaEntity.setMin_times(ligaRequest.min_times());
         ligaEntity.setData_criacao_liga(ligaRequest.dataCriacao());
 
-        //ESSE IF TEM A FUNÇÃO DE VER COMPARAR OS IDS DIGITADOS PELO USUARIO COM OS SALVOS NO BANCO DE DADOS
-        //SE OS IDS NAO ESTIVEREM ASSOCIADOS A NENNHUM, ELE FICA ASSOCIDADO A LIGA EM QUESTÃO
+        //ESSE IF TEM A FUNÇÃO DE COMPARAR OS IDS DIGITADOS PELO USUARIO COM OS SALVOS NO BANCO DE DADOS
+        //SE OS IDS NAO ESTIVEREM ASSOCIADOS A NENNHUMA LIGA, ELE FICA ASSOCIDADO A LIGA EM QUESTÃO
 
         if (ligaRequest.timesId() != null && !ligaRequest.timesId().isEmpty()) {
         List<TimeEntity> timesEncontrados = timeRepository.findAllById(ligaRequest.timesId());
         
         ligaEntity.setTimeEntity(timesEncontrados);
         
+        //  Cada time recebe a referência da Liga (Vínculo Bidirecional)
+        // É isso que preenche o id_liga na tabela de times
         timesEncontrados.forEach(time -> time.setLigaEntity(ligaEntity));
+
+
+
+        
     }
         ligaRepository.save(ligaEntity);
 

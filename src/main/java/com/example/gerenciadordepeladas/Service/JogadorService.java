@@ -82,6 +82,7 @@ public class JogadorService {
         return new JogadorResponse(
             jogadorEntity.getId_jogador(),
             jogadorEntity.getNome(),
+            jogadorEntity.getIdade(),
             jogadorEntity.getPosicao(),
             jogadorEntity.getStatus(),
             jogadorEntity.getTimeEntity() != null ? jogadorEntity.getTimeEntity().getId_time() : null

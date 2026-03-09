@@ -5,7 +5,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
-import com.example.gerenciadordepeladas.DTO.JogadorResponse;
+import com.example.gerenciadordepeladas.DTO.JogadorForTime;
 import com.example.gerenciadordepeladas.DTO.TimeRequest;
 import com.example.gerenciadordepeladas.DTO.TimeResponse;
 import com.example.gerenciadordepeladas.Entity.JogadorEntity;
@@ -86,15 +86,23 @@ public class TimeService {
             else{
                 listaJogadores= new ArrayList<>();
             }
-        List<JogadorResponse> jogadoresDTO = timeEntity.getJogadorEntity().stream()
-                .map(j -> new JogadorResponse(
-                        j.getId_jogador(),
-                        j.getNome(),
-                        j.getPosicao(),
-                        j.getStatus(),
-                        timeEntity.getId_time()
+        List<JogadorForTime> jogadoresDTO = timeEntity.getJogadorEntity().stream()
+                .map(jogador -> new JogadorForTime(
+                    jogador.getId_jogador(),
+                    jogador.getNome(),
+                    jogador.getIdade(),
+                    jogador.getPosicao()
+
                 ))
                 .toList();
+            
+            //Permite que quando o time não estiver associado a nenhuma liga, não tenha erro
+            Long idLiga = null;
+
+            if (timeEntity.getLigaEntity() != null) {
+                idLiga = timeEntity.getLigaEntity().getId_liga();
+                
+            }
         
     //Passagem dos atributos de entity para DTO
         return new TimeResponse(
@@ -102,7 +110,8 @@ public class TimeService {
             timeEntity.getRegiao(),
             timeEntity.getData_criacao_time(),
             timeEntity.getId_time(),
-            jogadoresDTO
+            jogadoresDTO,
+            idLiga
         );
 
     }

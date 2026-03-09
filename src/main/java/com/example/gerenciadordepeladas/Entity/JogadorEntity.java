@@ -38,18 +38,20 @@ public class JogadorEntity {
     private EnumPosicao posicao;
 
     private String status;
+    private Integer idade;
 
     public JogadorEntity() {
     }
 
     public JogadorEntity(Long id_jogador, Estatisitca_Jogador estatisitca_Jogador,
-            String nome, EnumPosicao posicao, String status,TimeEntity timeEntity) {
+            String nome, EnumPosicao posicao, String status,TimeEntity timeEntity,Integer idade ) {
         this.id_jogador = id_jogador;
         this.estatisitca_Jogador = estatisitca_Jogador;
         this.nome = nome;
         this.posicao = posicao;
         this.status = status;
         this.timeEntity = timeEntity;
+        this.idade=idade;
     }
 
     public Long getId_jogador() {
@@ -99,6 +101,16 @@ public class JogadorEntity {
     public void setTimeEntity(TimeEntity timeEntity) {
         this.timeEntity = timeEntity;
     }
+
+    public Integer getIdade() {
+        return idade;
+    }
+
+    public void setIdade(Integer idade) {
+        this.idade = idade;
+    }
+
+    
 
     
 
