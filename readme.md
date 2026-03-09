@@ -22,8 +22,11 @@ ________________________________________________________
 🛠️ *Funcionalidades Principais*
 
 •	Gestão de Ligas: Criação de competições com definição de modalidade, formato e limites de times.
+
 •	Vínculo Inteligente: Ao criar uma liga, o sistema associa automaticamente os IDs dos times, atualizando a chave estrangeira no banco de dados via lógica bidirecional.
+
 •	Estatísticas de Atletas: Registro individual de performance (Gols, Assistências, Cartões Amarelos/Vermelhos).
+
 •	Segurança de Dados: Tratamento de erros para IDs inexistentes e validação de campos nulos.
 
 ________________________________________________________
@@ -63,5 +66,6 @@ Endpoint	Descrição
 ________________________________________________________
 👨‍💻 *Autor*
 Guilherme Dos Anjos Silva Estudante de Análise e Desenvolvimento de Sistemas - SENAI.
+
 Foco em Apis Rest(Java/Spring Boot).
 ________________________________________________________
