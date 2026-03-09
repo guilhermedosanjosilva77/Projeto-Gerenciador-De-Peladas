@@ -20,6 +20,7 @@ A aplicação segue o padrão de camadas para garantir a separação de responsa
 ________________________________________________________
 
 🛠️ *Funcionalidades Principais*
+
 •	Gestão de Ligas: Criação de competições com definição de modalidade, formato e limites de times.
 •	Vínculo Inteligente: Ao criar uma liga, o sistema associa automaticamente os IDs dos times, atualizando a chave estrangeira no banco de dados via lógica bidirecional.
 •	Estatísticas de Atletas: Registro individual de performance (Gols, Assistências, Cartões Amarelos/Vermelhos).
