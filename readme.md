@@ -56,7 +56,7 @@ Passos para o Back-end:
 
 1.	Clone o repositório:
 Bash
-git clone https://github.com/seu-usuario/gerenciadordepeladas.git
+git clone https://github.com//guilhermedosanjosilva77/Projeto-Gerenciador-De-Peladas.git
 
 2.	Configure o application.properties com suas credenciais do MySQL:
 Properties ->
