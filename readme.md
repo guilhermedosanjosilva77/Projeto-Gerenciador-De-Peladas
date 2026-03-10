@@ -1,13 +1,27 @@
-⚽ *Gerenciador de Peladas (Liga Master)*
+<div align="center">
+  <h1><strong>⚽ Gerenciador de Peladas (MasterLiga)</strong></h1>
+</div>
+
+
+<div align="center">
+  <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white" alt="Java" />
+  <img src="https://img.shields.io/badge/Spring_Boot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white" alt="Spring Boot" />
+  <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL" />
+</div>
 
 O Gerenciador de peladas é uma Api FullStack desenvolvido para organizar campeonatos de futebol amador, gerenciar times, jogadores e automatizar o controle de estatísticas (gols, assistências e cartões). O projeto foca em integridade de dados e relacionamentos complexos no banco de dados.
 
 🚀 *Tecnologias Utilizadas*
 Back-end
+
 •	Java 17 & Spring Boot 3.4+
+
 •	Spring Data JPA: Persistência de dados e relacionamentos complexos.
+
 •	Hibernate: Mapeamento Objeto-Relacional (ORM) com suporte a operações em cascata e vínculos bidirecionais.
+
 •	MySQL: Banco de dados relacional.
+
 •	Maven: Gerenciamento de dependências.
 _____________________________________________________
 
@@ -35,8 +49,11 @@ ________________________________________________________
 
 Pré-requisitos
 •	Java 17 ou superior.
+
 •	MySQL Server.
-Passos para o Back-end
+
+Passos para o Back-end:
+
 1.	Clone o repositório:
 Bash
 git clone https://github.com/seu-usuario/gerenciadordepeladas.git
@@ -57,14 +74,21 @@ ________________________________________________________
 
 Endpoint	Descrição
 
-/liga	Cria uma nova liga e vincula os times.
-/time	Cria e busca detalhes de um time e sua respectiva liga.
-/estatisticas-jogador	Registra a performance de um atleta.
-/jogador	Crie perfis de jogadores e vincule a seus times
-/statsTime	Registre a performance de um time
+Método /Endpoint	Descrição
+
+/liga |	Cria uma nova liga e vincula os times.
+
+/time |	Cria e busca detalhes de um time e sua respectiva liga.
+
+/estatisticas-jogador |	Registra a performance de um atleta.
+
+/jogador |	Cria perfis de jogadores e vincula aos seus times.
+
+/statsTime |	Registra a performance de um time.
 
 ________________________________________________________
 👨‍💻 *Autor*
+
 Guilherme Dos Anjos Silva Estudante de Análise e Desenvolvimento de Sistemas - SENAI.
 
 Foco em Apis Rest(Java/Spring Boot).
