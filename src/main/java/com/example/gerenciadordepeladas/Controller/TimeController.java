@@ -15,6 +15,8 @@ import com.example.gerenciadordepeladas.DTO.TimeRequest;
 import com.example.gerenciadordepeladas.DTO.TimeResponse;
 import com.example.gerenciadordepeladas.Service.TimeService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/time")
 public class TimeController {
@@ -27,7 +29,7 @@ public class TimeController {
 
     //CREATE
     @PostMapping
-    public TimeResponse criar(@RequestBody TimeRequest timeRequest) {
+    public TimeResponse criar(@Valid @RequestBody TimeRequest timeRequest) {
         return timeService.criar(timeRequest);
         
     }
@@ -47,7 +49,7 @@ public class TimeController {
 
     //UPDATE
     @PutMapping("/{id_time}")
-    public TimeResponse atualizar (@PathVariable Long id_time, @RequestBody TimeRequest timeRequest) {
+    public TimeResponse atualizar (@PathVariable Long id_time, @Valid @RequestBody TimeRequest timeRequest) {
         return timeService.atualizar(id_time, timeRequest);
     }
 

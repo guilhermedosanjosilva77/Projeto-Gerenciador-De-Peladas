@@ -10,7 +10,7 @@ public record EstatisticaTimeResponse(
     int derrota,
     int empate,
     int saldoGols,
-    TimeSimplificado LigaId
+    TimeSimplificado Timeid
 ) {
 
 } 

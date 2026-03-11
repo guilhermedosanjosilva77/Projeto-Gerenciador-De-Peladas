@@ -6,6 +6,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.gerenciadordepeladas.DTO.JogadorRequest;
 import com.example.gerenciadordepeladas.DTO.JogadorResponse;
 import com.example.gerenciadordepeladas.Service.JogadorService;
+
+import jakarta.validation.Valid;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -32,7 +35,7 @@ public class JogadorController {
 
     //POST
     @PostMapping
-    public JogadorResponse criar(@RequestBody JogadorRequest jogadorRequest){
+    public JogadorResponse criar(@Valid @RequestBody JogadorRequest jogadorRequest){
         
         return jogadorService.criar(jogadorRequest);
     }
@@ -51,7 +54,7 @@ public class JogadorController {
 
     //PUT
     @PutMapping("/{id_jogador}")
-    public JogadorResponse atualizar(@PathVariable Long id_jogador, @RequestBody JogadorRequest jogadorRequest) {
+    public JogadorResponse atualizar(@PathVariable Long id_jogador,@Valid @RequestBody JogadorRequest jogadorRequest) {
         
         return jogadorService.atualizar(id_jogador, jogadorRequest);
     }

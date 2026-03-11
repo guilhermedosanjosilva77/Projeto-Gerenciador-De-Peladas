@@ -12,11 +12,11 @@ public record LigaResponse(
     String nome,
     EnumModalidade modalidade,
     EnumFormato formato,
-    int maxTimes,
-    int minTimes,
+    int max_times,
+    int min_times,
     Date data_criacao,
     //DTO SIMPLIFICADO PARA PASSAR DENTRO DO SERVICE
-    List<TimeSimplificado> times
+    List<TimeSimplificado> timesId
 
 ) {
 }

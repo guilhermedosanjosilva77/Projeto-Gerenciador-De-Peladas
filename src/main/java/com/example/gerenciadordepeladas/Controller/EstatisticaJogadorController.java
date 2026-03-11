@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 
 
 @RestController
-@RequestMapping("/estatistica-jogador")
+@RequestMapping("/statsJogador")
 public class EstatisticaJogadorController {
 
     private final Estatistica_JogadorService estatistica_Jogador;

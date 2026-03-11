@@ -32,6 +32,7 @@ public class JogadorService {
         JogadorEntity jogadorEntity = new JogadorEntity();
 
         jogadorEntity.setNome(jogadorRequest.nome());
+        jogadorEntity.setIdade(jogadorRequest.idade());
         jogadorEntity.setPosicao(jogadorRequest.posicao());
         jogadorEntity.setStatus(jogadorRequest.status());
         jogadorEntity.setTimeEntity(timeEntity);
@@ -61,6 +62,7 @@ public class JogadorService {
         //Verifica se o time novo, realmente existe 
         TimeEntity timeEntity = timeRepository.findById(jogadorRequest.id_time()).orElseThrow(()-> new RuntimeException("Time não encontrado"));
         jogadorEntity.setNome(jogadorRequest.nome());
+        jogadorEntity.setIdade(jogadorRequest.idade());
         jogadorEntity.setPosicao(jogadorRequest.posicao());
         jogadorEntity.setStatus(jogadorRequest.status());
         jogadorEntity.setTimeEntity(timeEntity);

@@ -6,6 +6,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.gerenciadordepeladas.DTO.LigaRequest;
 import com.example.gerenciadordepeladas.DTO.LigaResponse;
 import com.example.gerenciadordepeladas.Service.LigaService;
+
+import jakarta.validation.Valid;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -31,7 +34,7 @@ public class LIgaController {
 
     //CREATE
     @PostMapping
-    public LigaResponse criar(@RequestBody LigaRequest ligaRequest) {
+    public LigaResponse criar(@Valid @RequestBody LigaRequest ligaRequest) {
         return ligaService.criar(ligaRequest);
         
     }
@@ -51,7 +54,7 @@ public class LIgaController {
 
     //UPDATE
     @PutMapping("/{id_liga}")
-    public LigaResponse atualizar (@PathVariable Long id_liga, @RequestBody LigaRequest ligaRequest) {
+    public LigaResponse atualizar (@PathVariable Long id_liga, @Valid @RequestBody LigaRequest ligaRequest) {
         //TODO: process PUT request
         
         return ligaService.atualizar(id_liga, ligaRequest);

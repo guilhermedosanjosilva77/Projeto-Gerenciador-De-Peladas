@@ -86,7 +86,7 @@ public class TimeService {
             else{
                 listaJogadores= new ArrayList<>();
             }
-        List<JogadorForTime> jogadoresDTO = timeEntity.getJogadorEntity().stream()
+        List<JogadorForTime> jogadoresDTO = listaJogadores.stream()
                 .map(jogador -> new JogadorForTime(
                     jogador.getId_jogador(),
                     jogador.getNome(),

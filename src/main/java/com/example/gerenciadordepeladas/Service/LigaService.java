@@ -28,6 +28,9 @@ public class LigaService {
 
     //CREATE
     public LigaResponse criar (LigaRequest ligaRequest){
+        System.out.println(ligaRequest.timesId());
+        System.out.println("JSON recebido - Nome: " + ligaRequest.nome());
+        System.out.println("JSON recebido - IDs dos Times: " + ligaRequest.timesId());
         LigaEntity ligaEntity = new LigaEntity();
 
         ligaEntity.setNome_liga(ligaRequest.nome());

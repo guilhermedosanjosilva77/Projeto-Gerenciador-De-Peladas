@@ -14,6 +14,8 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "jogador")
@@ -31,6 +33,7 @@ public class JogadorEntity {
     @JoinColumn(name = "id_time")
     private TimeEntity timeEntity;
 
+    @NotBlank(message = "O jogador precisa de um nome")
     private String nome;
 
 
@@ -38,6 +41,8 @@ public class JogadorEntity {
     private EnumPosicao posicao;
 
     private String status;
+
+    @NotNull(message = "O jogador precisa de uma idade")
     private Integer idade;
 
     public JogadorEntity() {

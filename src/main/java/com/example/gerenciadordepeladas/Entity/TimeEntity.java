@@ -14,6 +14,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "time")
@@ -24,7 +25,7 @@ public class TimeEntity {
 
     //Um time pode ter muitos jogadores (Um > Muitos)
     @OneToMany (mappedBy = "timeEntity")
-    private List<JogadorEntity> jogadorEntity;
+    private List<JogadorEntity> jogadorEntity = new ArrayList<>();
 
     //tabela estatistica time
     @OneToOne (mappedBy = "timeEntity",cascade = CascadeType.ALL, orphanRemoval = true)
@@ -34,8 +35,10 @@ public class TimeEntity {
     @JoinColumn(name = "id_liga")
     private LigaEntity ligaEntity;
 
-
+    @NotBlank(message = "O time precisa de um nome")
     private String nomeTime;
+
+    @NotBlank(message = "O jogador precisa de uma região")
     private String regiao;
     private Date data_criacao_time;
 

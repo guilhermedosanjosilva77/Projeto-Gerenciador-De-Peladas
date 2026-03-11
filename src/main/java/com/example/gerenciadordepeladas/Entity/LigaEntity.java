@@ -16,6 +16,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name = "liga")
@@ -34,9 +36,11 @@ public class LigaEntity {
     private List<Estatistica_time> estatistica_time;
 
     //Tabela relacionamento com os times
+    @NotEmpty(message = "Você precisa informar pelo menos um ID de time")
     @OneToMany (mappedBy = "ligaEntity", cascade = CascadeType.ALL)
     private List<TimeEntity>timeEntity;
 
+    @NotBlank(message="O nome da liga é obrigatorio")
     private String nome_liga;
     private String regiao_lga;
 
